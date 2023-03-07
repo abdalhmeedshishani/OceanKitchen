@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 mat-dialog-title>Delete Order</h1>
+  <div mat-dialog-content>
+    Are you sure to delete this Order: <span class="text-primary">{{ data.order.name }}</span>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancle</button>
+    <button mat-button mat-dialog-close [mat-dialog-close]="true">
+      Delete
+    </button>
+  </div>
+</div>

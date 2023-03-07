@@ -1,0 +1,51 @@
+<div class="container">
+
+  <h2>Dishes</h2>
+  <hr>
+<a class="mb-3 btn btn-primary" [routerLink]="['/dish/create']">Create New Guest</a>
+<div class="position-relative">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+      <th>Name</th>
+      <th>Dish-Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let dish of dishes">
+        <td>{{ dish.id }}</td>
+        <td>{{ dish.name }}</td>
+        <td>{{ dish.dishPrice}}</td>
+        <td>
+          <a [routerLink]="['/dish/dish-details', dish.id]">
+            <lord-icon
+            src="https://cdn.lordicon.com/ncxoarcp.json"
+          trigger="hover"
+          colors="primary:#121331"
+          style="width:25px;height:25px; margin: 7px 0px;">
+        </lord-icon>
+      </a>
+
+      <a [routerLink]="['/dish/edit', dish.id]">
+        <lord-icon
+        src="https://cdn.lordicon.com/edxgdhxu.json"
+        trigger="hover"
+        style="width:40px;height:40px;">
+      </lord-icon>
+        </a>
+        <a class="cursor-pointer" (click)="deleteDish(dish.id)" ><lord-icon
+          src="https://cdn.lordicon.com/gsqxdxog.json"
+          trigger="hover"
+          style="width:31px;height:40px;" >
+        </lord-icon></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-spinner ></app-spinner>
+</div>
+</div>

@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>Order</h2>
+  <hr />
+
+  <a class="mb-3 btn btn-primary" [routerLink]="['/order/create']"
+    >Create New Order</a
+  >
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">DishName</th>
+        <th scope="col">TotalPrice</th>
+        <th scope="col">OrderDate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>
+          {{ order.id }}
+        </td>
+        <td>{{ order.notes }}</td>
+        <td>{{ order.totalPrice }}</td>
+        <td>{{ order.orderDate }}</td>
+        <td>
+          <a [routerLink]="['/order/details', order.id]">
+            <lord-icon
+              src="https://cdn.lordicon.com/ncxoarcp.json"
+              trigger="hover"
+              colors="primary:#121331"
+              style="width: 25px; height: 25px; margin: 7px 0px"
+            >
+            </lord-icon>
+          </a>
+
+          <a [routerLink]="['/order/edit', order.id]">
+            <lord-icon
+              src="https://cdn.lordicon.com/edxgdhxu.json"
+              trigger="hover"
+              style="width: 40px; height: 40px"
+            >
+            </lord-icon>
+          </a>
+
+          <a (click)="deleteOrder(order.id)">
+            <lord-icon
+              src="https://cdn.lordicon.com/gsqxdxog.json"
+              trigger="hover"
+              style="width: 31px; height: 40px"
+            >
+            </lord-icon
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

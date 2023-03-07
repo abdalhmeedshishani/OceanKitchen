@@ -1,0 +1,64 @@
+<div class="container">
+  <h2>Guests</h2>
+  <hr />
+  <a class="mb-3 btn btn-primary" [routerLink]="['/guest/create']"
+    >Create New Guest</a
+  >
+
+  <div class="col-md-12 mb-3" style="margin-top: 10px">
+    <ngx-datatable
+      class="material container striped"
+      [rows]="guests"
+      [columnMode]="'flex'"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      rowHeight="auto"
+    >
+      <ngx-datatable-column name="Id" [flexGrow]="2">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row?.id }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Name" [flexGrow]="2">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row?.name }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Gender" [flexGrow]="2">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ gender[row.gender] }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Age" [flexGrow]="2">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row?.age }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Actions" [flexGrow]="2">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <a [routerLink]="['/guest/guest-details', row.id]">
+            <lord-icon
+            src="https://cdn.lordicon.com/ncxoarcp.json"
+          trigger="hover"
+          colors="primary:#121331"
+          style="width:25px;height:25px; margin: 7px 0px;">
+        </lord-icon>
+      </a>
+
+      <a [routerLink]="['/guest/edit', row.id]">
+        <lord-icon
+        src="https://cdn.lordicon.com/edxgdhxu.json"
+        trigger="hover"
+        style="width:40px;height:40px;">
+      </lord-icon>
+        </a>
+        <a class="cursor-pointer" (click)="deleteGuest(row.id)" ><lord-icon
+          src="https://cdn.lordicon.com/gsqxdxog.json"
+          trigger="hover"
+          style="width:31px;height:40px;" >
+        </lord-icon></a>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>
